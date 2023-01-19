@@ -31,7 +31,7 @@ The actors involved in the scenario are:
 
 For tutorial purposes, you will use a simple OPC UA server (source code [here](https://github.com/Engineering-Research-and-Development/opc-ua-car-server)).
 
-.. figure:: figures/iotagentscorpioarchitecture.png
+.. figure:: car_schema.png
 
 It represents a car with the following structure:
 
