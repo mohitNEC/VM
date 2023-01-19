@@ -1,4 +1,4 @@
-.. figure:: https://fiware.github.io/tutorials.IoT-over-MQTT/img/fiware.png, https://opcfoundation.org/wp-content/themes/opc/images/logo.jpg
+.. figure:: Foundation.png
 
 
 Integrate Scorpio Broker with OPC UA IoT agent 
