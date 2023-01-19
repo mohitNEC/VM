@@ -4,7 +4,7 @@
 Integrate Scorpio Broker with OPC UA IoT agent 
 ****************************************************
 
-This is a step-by-step tutorial that will introduce in detail how to enable OPC UA to FIWARE connecting an OPC UA server to Orion Context Broker using the agent. The OPC UA data will be automatically published in a FIWARE Orion Context Broker using NGSI data model.
+This is a step-by-step tutorial that will introduce in detail how to enable OPC UA to FIWARE connecting an OPC UA server to Scorpio Context Broker using the agent. The OPC UA data will be automatically published in a FIWARE Scorpio Context Broker using NGSI data model.
 
 **What is OPC UA?**
 
@@ -29,7 +29,7 @@ The actors involved in the scenario are:
 
 **OPC UA Server**
 
-For tutorial purposes, you will use a simple OPC UA server (source code [here](https://github.com/Engineering-Research-and-Development/opc-ua-car-server)).
+For tutorial purposes, you will use a simple OPC UA server (source code : https://github.com/Engineering-Research-and-Development/opc-ua-car-server).
 
 .. figure:: car_schema.png
 
@@ -88,7 +88,7 @@ After that you can run:
 
 .. code-block:: console
 
-	bash docker ps
+	docker ps
 
 to check if all the required components are running
 
@@ -117,11 +117,11 @@ The response will look similar to the following:
 		"version": "2.0.4"
 	}
     
-Running the docker environment (using configuration files as is) creates the following situation:
+Running the docker environment (using configuration files) creates the following situation:
 	
-.. figure:: figures/device.png
+.. figure:: opcua_Architecture.png
 
-How to Fetch data from IoT Agent to Scorpio Broker
+How to Fetch data from OPC UA IoT Agent to Scorpio Broker
 ================================================================
 
 **Step 1** Start using the testbed
@@ -135,7 +135,7 @@ Three different initialization modalities are available:
 -   Invoke a mapping tool responsible of automatically building the config.js (**NOTE:** **_Before using the MappingTool, erase the three objects: *types*, *contexts*, *contextSubscriptions* within the existing config.js_**)
 -   Use the REST API
 
-Since in the following parts of this tutorial we are going to use the REST API. The default empty config.json is preloaded and we have disabled autoprovisioning for this tutorial so we will be provisioning device using REST API. 
+**Note:** Since in the following parts of this tutorial we are going to use the REST API. The default empty config.json is preloaded and we have disabled autoprovisioning for this tutorial so we will be provisioning device using REST API. 
 
 **Step 2** Provision a new Device
 ----------------------------------
