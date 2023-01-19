@@ -31,7 +31,7 @@ The actors involved in the scenario are:
 
 For tutorial purposes, you will use a simple OPC UA server (source code : https://github.com/Engineering-Research-and-Development/opc-ua-car-server).
 
-.. figure:: figures/car_schema.png
+.. figure:: car_schema.png
 
 It represents a car with the following structure:
 
@@ -119,7 +119,7 @@ The response will look similar to the following:
     
 Running the docker environment (using configuration files) creates the following situation:
 	
-.. figure:: figures/iotagent-opcuascorpioarchitecture.png
+.. figure:: iotagent-opcuascorpioarchitecture.png
 
 How to Fetch data from OPC UA IoT Agent to Scorpio Broker
 ================================================================
