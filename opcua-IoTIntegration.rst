@@ -1,4 +1,4 @@
-.. figure:: Foundation.png
+.. figure:: OPC-UA.png
 
 
 Integrate Scorpio Broker with OPC UA IoT agent 
@@ -31,7 +31,7 @@ The actors involved in the scenario are:
 
 For tutorial purposes, you will use a simple OPC UA server (source code : https://github.com/Engineering-Research-and-Development/opc-ua-car-server).
 
-.. figure:: car_schema.png
+.. figure:: figures/car_schema.png
 
 It represents a car with the following structure:
 
@@ -119,12 +119,12 @@ The response will look similar to the following:
     
 Running the docker environment (using configuration files) creates the following situation:
 	
-.. figure:: opcua_Architecture.png
+.. figure:: figures/iotagent-opcuascorpioarchitecture.png
 
 How to Fetch data from OPC UA IoT Agent to Scorpio Broker
 ================================================================
 
-**Step 1** Start using the testbed
+**Step 1:** Start using the testbed
 -----------------------------------------------------------------
 
 For the Agent to work an *initialization* phase is required. During this phase the Agent becomes aware of what variables and methods are available on OPC UA server-side. These information can be provided to the agent by means of a configuration file (config.json) or through the REST API
@@ -135,9 +135,9 @@ Three different initialization modalities are available:
 -   Invoke a mapping tool responsible of automatically building the config.js (**NOTE:** **_Before using the MappingTool, erase the three objects: *types*, *contexts*, *contextSubscriptions* within the existing config.js_**)
 -   Use the REST API
 
-**Note:** Since in the following parts of this tutorial we are going to use the REST API. The default empty config.json is preloaded and we have disabled autoprovisioning for this tutorial so we will be provisioning device using REST API. 
+**Important Note:** Since in the following parts of this tutorial we are going to use the REST API. The default empty config.json is preloaded and we have disabled autoprovisioning for this tutorial so we will be provisioning device using REST API. 
 
-**Step 2** Provision a new Device
+**Step 2:** Provision a new Device
 ----------------------------------
 By Device we mean the set of variables (attributes) and methods available on OPC UA Server-side.
 
@@ -206,7 +206,7 @@ To provision the Device corresponding to what the CarServer offers, use the foll
 	}'
 
 
-**step 3** IoT Agent records the measurement of Actuator after Provisioning the Device on it and forward the measurement to Scorpio. Execute the following command to retrieve the recorded measurement of actuator from Scorpio
+**Step 3:** IoT Agent records the measurement of Actuator after Provisioning the Device on it and forward the measurement to Scorpio. Execute the following command to retrieve the recorded measurement of actuator from Scorpio
 
 .. code-block:: console 
 
@@ -321,7 +321,7 @@ You can interact with the CarServer through the Agent in three different ways:
 -   **Commands** Through the requests described below it is possible to execute methods on the OPC UA server
 
 
-**Step 4** Monitor Agent behaviour
+**Step 4:** Monitor Agent behaviour
 ---------------------------------------
 
 Any activity regarding the Agent can be monitored looking at the logs. To view docker testbed logs run:
@@ -333,7 +333,7 @@ Any activity regarding the Agent can be monitored looking at the logs. To view d
 
 Looking at these logs is useful to spot possible errors.
 
-**Step 4** Accelerate (North Bound)
+**Step 5:** Accelerate (North Bound)
 --------------------------------------
 
 In order to send the CarAccelerate command (method in OPC UA jargon), the request has to be sent directly to OPC UA Agent's North Port :
@@ -351,7 +351,7 @@ In order to send the CarAccelerate command (method in OPC UA jargon), the reques
 	
 To proof that the method Accelerate is arrived to the device, it is sufficient to evaluate the speed attribute (must be greater than zero):
 
-**step 5** IoT Agent receives the command on Patch and forward the updated measurement to Scorpio. Execute the following command to retrieve the recorded measurement of device from Scorpio.
+**Step 6:** IoT Agent receives the command on Patch and forward the updated measurement to Scorpio. Execute the following command to retrieve the recorded measurement of device from Scorpio.
 
 .. code-block:: console 
 
@@ -478,7 +478,7 @@ Response
 
 
 
-**Step 6** Send the below PATCH request to Enable Scorpio-Broker commands (South Bound)
+**Step 7:** Send the below PATCH request to Enable Scorpio-Broker commands (South Bound)
 ----------------------------------------------------------------------------------
 
 .. code-block:: console 
@@ -492,7 +492,7 @@ Response
 		"value": " "
 	}'
 	
-**step 7** IoT Agent receives the command from Scorpio-Broker on Patch and forward the updated measurement to Scorpio. Execute the following command to retrieve the recorded measurement of device from Scorpio.
+**step 8:** IoT Agent receives the command from Scorpio-Broker on Patch and forward the updated measurement to Scorpio. Execute the following command to retrieve the recorded measurement of device from Scorpio.
 
 .. code-block:: console 
 
