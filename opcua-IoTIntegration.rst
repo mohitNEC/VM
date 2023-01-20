@@ -73,7 +73,7 @@ Please clone the repository and create the necessary images like scorpio broker 
 .. code-block:: console
     
      git clone https://github.com/ScorpioBroker/ScorpioBroker.git
-	 git checkout iotagent-opcua
+	 git checkout Q_iotagent-opcua
      cd ScorpioBroker/iotagent-opcua/docker
 
     docker-compose up -d
@@ -135,7 +135,7 @@ Three different initialization modalities are available:
 -   Invoke a mapping tool responsible of automatically building the config.js (**NOTE:** **_Before using the MappingTool, erase the three objects: *types*, *contexts*, *contextSubscriptions* within the existing config.js_**)
 -   Use the REST API
 
-**Important Note:** Since in the following parts of this tutorial we are going to use the REST API. The default empty config.json is preloaded and we have disabled autoprovisioning for this tutorial so we will be provisioning device using REST API. 
+**Note:** Since in the following parts of this tutorial we are going to use the REST API. The default empty config.json is preloaded and we have disabled autoprovisioning for this tutorial so we will be provisioning device using REST API. 
 
 **Step 2:** Provision a new Device
 ----------------------------------
@@ -492,7 +492,7 @@ Response
 		"value": " "
 	}'
 	
-**step 8:** IoT Agent receives the command from Scorpio-Broker on Patch and forward the updated measurement to Scorpio. Execute the following command to retrieve the recorded measurement of device from Scorpio.
+**Step 8:** IoT Agent receives the command from Scorpio-Broker on Patch and forward the updated measurement to Scorpio. Execute the following command to retrieve the recorded measurement of device from Scorpio.
 
 .. code-block:: console 
 
