@@ -98,7 +98,7 @@ check if the Scorpio broker is running
 
 .. code-block:: console
 
-	curl <scorpio-brokerIP>:9090/actuator/health
+	curl <scorpio-brokerIP>:9090/q/health
 
 check if the IoT Agent broker is running
 
