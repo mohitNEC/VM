@@ -349,7 +349,7 @@ In order to send the CarAccelerate command (method in OPC UA jargon), the reques
 		"value": "2"
 	}'
 	
-To proof that the method Accelerate is arrived to the device, it is sufficient to evaluate the speed attribute (must be greater than zero):
+To proof that the method CarAccelerate is arrived to the device, it is sufficient to evaluate the speed attribute (must be greater than zero):
 
 **Step 6:** IoT Agent receives the command on Patch and forward the updated measurement to Scorpio. Execute the following command to retrieve the recorded measurement of device from Scorpio.
 
@@ -481,9 +481,11 @@ Response
 **Step 7:** Send the below PATCH request to Enable Scorpio-Broker commands (South Bound)
 ----------------------------------------------------------------------------------
 
+In order to send the CarStop command (method in OPC UA jargon), the request has to be sent to Scorpio that forwards the request to the OPC UA Agent: :
+
 .. code-block:: console 
 
-	curl --location --request PATCH 'http://172.30.48.45:4041/ngsi-ld/v1/entities/urn:ngsi-ld:Device:age01_Car/attrs/CarStop' \
+	curl --location --request PATCH 'http://<scorpio-brokerIP>:9090/ngsi-ld/v1/entities/urn:ngsi-ld:Device:age01_Car/attrs/CarStop' \
 	--header 'NGSILD-Tenant: opcua_car' \
 	--header 'NGSILD-Path: /demo' \
 	--header 'Content-Type: application/json' \
