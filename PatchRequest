@@ -1,0 +1,129 @@
+PATCH command for CarAccelerate method:
+
+	curl --location --request PATCH 'http://<scorpio-brokerIP>:9090/ngsi-ld/v1/entities/urn:ngsi-ld:Device:age01_Car/attrs/CarAccelerate' \
+	--header 'fiware-service: opcua_car' \
+	--header 'fiware-servicepath: /demo' \
+	--header 'Content-Type: application/json' \
+	--data-raw '{
+			"type": "Property",
+			"value": "2"
+	}'
+	
+IoT Agent receives the command on Patch and forward the updated measurement to Scorpio. Execute the following command to retrieve the recorded measurement of device from Scorpio.
+
+	curl --location --request GET 'http://<scorpio-brokerIP>:9090/ngsi-ld/v1/entities/urn:ngsi-ld:Device:age01_Car' \
+	--header 'NGSILD-Tenant: opcua_car' \
+	--header 'NGSILD-Path: /demo' \
+	--header 'Content-Type: application/json'
+	
+Response:
+{
+        "id": "urn:ngsi-ld:Device:age01_Car",
+        "type": "Device",
+        "CarAccelerate_info": {
+                "type": "Property",
+                "value": {
+                        "type": "commandResult",
+                        "@value": "Accelerated from 0"
+                },
+                "observedAt": "2023-01-19T06:41:05.346Z"
+        },
+        "CarAccelerate_status": {
+                "type": "Property",
+                "value": {
+                        "type": "commandStatus",
+                        "@value": "OK"
+                },
+                "observedAt": "2023-01-19T06:41:05.346Z"
+        },
+        "CarAcceleration": {
+                "type": "Property",
+                "value": 2,
+                "observedAt": "2023-01-19T06:42:21.923Z"
+        },
+        "CarActivateSensor_info": {
+                "type": "Property",
+                "value": {
+                        "type": "commandResult",
+                        "@value": " "
+                }
+        },
+        "CarActivateSensor_status": {
+                "type": "Property",
+                "value": {
+                        "type": "commandStatus",
+                        "@value": "UNKNOWN"
+                }
+        },
+        "CarDeactivateSensor_info": {
+                "type": "Property",
+                "value": {
+                        "type": "commandResult",
+                        "@value": " "
+                }
+        },
+        "CarDeactivateSensor_status": {
+                "type": "Property",
+                "value": {
+                        "type": "commandStatus",
+                        "@value": "UNKNOWN"
+                }
+        },
+        "CarEngineOxigen": {
+                "type": "Property",
+                "value": 78,
+                "observedAt": "2023-01-19T06:42:18.929Z"
+        },
+        "CarEngineTemperature": {
+                "type": "Property",
+                "value": 76,
+                "observedAt": "2023-01-19T06:41:33.920Z"
+        },
+        "CarError_info": {
+                "type": "Property",
+                "value": {
+                        "type": "commandResult",
+                        "@value": " "
+                }
+        },
+        "CarError_status": {
+                "type": "Property",
+                "value": {
+                        "type": "commandStatus",
+                        "@value": "UNKNOWN"
+                }
+        },
+        "CarSpeed": {
+                "type": "Property",
+                "value": 150,
+                "observedAt": "2023-01-19T06:42:20.925Z"
+        },
+        "CarStop_info": {
+                "type": "Property",
+                "value": {
+                        "type": "commandResult",
+                        "@value": " "
+                }
+        },
+        "CarStop_status": {
+                "type": "Property",
+                "value": {
+                        "type": "commandStatus",
+                        "@value": "UNKNOWN"
+                }
+        },
+        "CarToggleSensorActivation_info": {
+                "type": "Property",
+                "value": {
+                        "type": "commandResult",
+                        "@value": " "
+                }
+        },
+        "CarToggleSensorActivation_status": {
+                "type": "Property",
+                "value": {
+                        "type": "commandStatus",
+                        "@value": "UNKNOWN"
+                }
+        }
+}

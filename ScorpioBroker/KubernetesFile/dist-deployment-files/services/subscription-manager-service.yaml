@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    service: subscription-manager
+  name: subscription-manager
+  namespace: scorpio-broker
+spec:
+  ports:
+  - name: "2027"
+    port: 2027
+    targetPort: 2027
+  selector:
+    service: subscription-manager
+status: {}
+
