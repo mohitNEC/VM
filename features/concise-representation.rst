@@ -80,8 +80,11 @@ The concise GeoJSON representation of a single Entity is defined as a single Geo
 • "type": shall be a supported GeoJSON geometry.
 • "coordinates": shall be present.
 
-- **Get entity in Nomalized Representation:**
+- **Get entity in Nomalized Representation**
 
+GET API: http://localhost:9090/ngsi-ld/v1/entities/smartcity:houses:house6
+
+Response:
 ::
 	{
 		"id": "smartcity:houses:house6",
@@ -100,6 +103,9 @@ The concise GeoJSON representation of a single Entity is defined as a single Geo
 
 - **Get entity with concise option:**
 
+GET API: http://localhost:9090/ngsi-ld/v1/entities/smartcity:houses:house6?option=concise
+
+Response:
 ::
 	{
 		"id": "smartcity:houses:house6",
