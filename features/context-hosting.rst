@@ -17,20 +17,19 @@ We can store @context to database and also download from other resource and stor
  
 **POST API**
 
-	Resource URI  : **/jsonldContexts**
+•	Resource URI  : **/jsonldContexts**
 
 	Request body: JSON Object 
 	
 	Payload body in the request contains a JSON object that has a root node named @context, which represents a JSON-LD "local context".
 	
 	Add new table in existing database for store the context:
+	 - Table name: context
 	
-	Table name: context
-	
-	Column Name :: id , body , kind , timestamp
+	Column Name: id , body , kind , timestamp
 
 	Response Body: 
-	- 201 Created: The HTTP response shall include a local URI to the added @context
+	 - 201 Created: The HTTP response shall include a local URI to the added @context
 
 
 **GET API**
