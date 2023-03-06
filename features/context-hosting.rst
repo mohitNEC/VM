@@ -17,7 +17,7 @@ We can store @context to database and also download from other resource and stor
  
 **POST API**
 
-	Resource URI  : /jsonldContexts
+	Resource URI  : **/jsonldContexts**
 
 	Request body: JSON Object 
 	
@@ -30,7 +30,7 @@ We can store @context to database and also download from other resource and stor
 	Column Name :: id , body , kind , timestamp
 
 	Response Body: 
-	 - 201 Created: The HTTP response shall include a local URI to the added @context
+	- 201 Created: The HTTP response shall include a local URI to the added @context
 
 
 **GET API**
@@ -53,13 +53,13 @@ We can store @context to database and also download from other resource and stor
 
 **DELETE API**
 
-•	/jsonldContexts/{contextId}
+•	Resource URI : **/jsonldContexts/{contextId}**
 
-	204 No content
+	Response Body: 204 No content
 	
-•	/jsonldContexts/{contextId} ?reload=true
+•	Resource URI : **/jsonldContexts/{contextId}?reload=true**
 
-	204 No context 
+	Resource Body: 204 No context 
 
 
 Example for Context Hosting
