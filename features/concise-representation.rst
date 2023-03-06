@@ -76,48 +76,52 @@ Response:
 2. Location based example with concise
 ---------------------------------------
 
-The concise GeoJSON representation of a single Entity is defined as a single GeoJSON Feature object as follows: 
-• "type": shall be a supported GeoJSON geometry.
-• "coordinates": shall be present.
+The concise GeoJSON representation of a single Entity is defined as a single GeoJSON Feature object as follows:
 
-- **Get entity in Nomalized Representation**
+ - "type": shall be a supported GeoJSON geometry.
+ - "coordinates": shall be present.
 
-GET API: http://localhost:9090/ngsi-ld/v1/entities/smartcity:houses:house6
+1. **Nomalized Representation for GeoJSON**
+
+GET API: http://localhost:9090/ngsi-ld/v1/entities/smartcity:building:building1
 
 Response:
 ::
 	{
-		"id": "smartcity:houses:house6",
-		"type": "House",
-		"location": {
-					"type": "GeoProperty",
-					"value": {
-							"type": "Point",
-							"coordinates": [-8.50000005, 41.2]
-					}
-		},
-		"@context": [
-			"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld"
-		]
+	    "id": "smartcity:building:building1",
+	    "type": "Building",
+	    "location": {
+		"type": "GeoProperty",
+		"value": {
+		    "type": "Point",
+		    "coordinates": [
+			-8.50000005,
+			41.2
+		    ]
+		}
+	    },
+	    "@context": [
+		"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld"
+	    ]
 	}
 
-- **Get entity with concise option:**
+2. **Concise Representation for GeoJSON**
 
-GET API: http://localhost:9090/ngsi-ld/v1/entities/smartcity:houses:house6?option=concise
+GET API: http://localhost:9090/ngsi-ld/v1/entities/smartcity:building:building1?option=concise
 
 Response:
 ::
 	{
-		"id": "smartcity:houses:house6",
-		"type": "House",
-		"location": {
-			"type": "Point",
-			"coordinates": [
-				-8.50000005,
-				41.2
-			]
-		},
-		"@context": [
-			"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld"
+	    "id": "smartcity:building:building1",
+	    "type": "Building",
+	    "location": {
+		"type": "Point",
+		"coordinates": [
+		    -8.50000005,
+		    41.2
 		]
+	    },
+	    "@context": [
+		"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld"
+	    ]
 	}
