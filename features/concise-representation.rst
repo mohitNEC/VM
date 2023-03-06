@@ -89,7 +89,7 @@ Response:
 ::
 	{
 	    "id": "smartcity:building:building1",
-	    "type": "House",
+	    "type": "Building",
 	    "location": {
 		"type": "GeoProperty",
 		"value": {
@@ -99,7 +99,10 @@ Response:
 			41.2
 		    ]
 		}
-	    }
+	    },
+	    "@context": [
+		"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.3.jsonld"
+	    ]
 	}
 
 2. **Concise Representation for GeoJSON**
@@ -109,16 +112,16 @@ GET API: http://localhost:9090/ngsi-ld/v1/entities/smartcity:building:building1?
 Response:
 ::
 	{
-		"id": "smartcity:building:building1",
-		"type": "House",
-		"location": {
-			"type": "Point",
-			"coordinates": [
-				-8.50000005,
-				41.2
-			]
-		},
-		"@context": [
-			"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld"
+	    "id": "smartcity:building:building1",
+	    "type": "Building",
+	    "location": {
+		"type": "Point",
+		"coordinates": [
+		    -8.50000005,
+		    41.2
 		]
+	    },
+	    "@context": [
+		"https://uri.etsi.org/ngsi-ld/v1/ngsi-ld-core-context-v1.6.jsonld"
+	    ]
 	}
