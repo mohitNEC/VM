@@ -20,38 +20,50 @@ We can store @context to database and also download from other resource and stor
 	Resource URI  : /jsonldContexts
 
 	Request body: JSON Object 
+	
 	Payload body in the request contains a JSON object that has a root node named @context, which represents a JSON-LD "local context".
+	
 	Add new table in existing database for store the context:
+	
 	Table name: context
+	
 	Column Name :: id , body , kind , timestamp
 
 	Response Body: 
-	 201 Created: The HTTP response shall include a local URI of the added @context
+	 - 201 Created: The HTTP response shall include a local URI to the added @context
 
 
 **GET API**
 
-•	Resource URI :  /jsonldContexts: 
+•	Resource URI : **/jsonldContexts** 
+
 	Response Body: 200 Ok URL[] (show the list of @contexts)
 
-•	/jsonldContexts?details=true
-	Response Body: 200 OK  {URL,id, more details}[] ((show the list of @contexts) with context details)
+•	Resource URI : **/jsonldContexts?details=true**
+
+	Response Body: 200 OK  {URL,id, more details} [(show the list of @contexts) with context details]
+	
 	Details: Boolean
+	
 	Whether a list of URLs or a more detailed list of JSON Objects is requested
+	
 	Kind: String
-	Can be either "Cached", "Hosted", or "ImplicitlyCreated".
+	
+	Can be either *"Cached"*, *"Hosted"*, or *"ImplicitlyCreated"*.
 
 **DELETE API**
 
 •	/jsonldContexts/{contextId}
+
 	204 No content
 	
 •	/jsonldContexts/{contextId} ?reload=true
+
 	204 No context 
 
 
-Example for Comtext Hosting
-#############################
+Example for Context Hosting
+############################
 
 1. **POST API**
 ::
