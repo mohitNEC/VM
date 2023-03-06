@@ -77,10 +77,10 @@ Response:
 ---------------------------------------
 
 The concise GeoJSON representation of a single Entity is defined as a single GeoJSON Feature object as follows: 
-• "type": shall be a supported GeoJSON geometry.
-• "coordinates": shall be present.
+ - "type": shall be a supported GeoJSON geometry.
+ - "coordinates": shall be present.
 
-- **Get entity in Nomalized Representation**
+1. **Nomalized Representation for GeoJSON**
 
 GET API: http://localhost:9090/ngsi-ld/v1/entities/smartcity:building:building1
 
@@ -101,7 +101,7 @@ Response:
 		]
 	}
 
-- **Get entity with concise option:**
+2. **Concise Representation for GeoJSON**
 
 GET API: http://localhost:9090/ngsi-ld/v1/entities/smartcity:building:building1?option=concise
 
