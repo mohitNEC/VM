@@ -24,7 +24,7 @@ GET API: http://localhost:9090/ngsi-ld/v1/entities/urn:ngsi-ld:Vehicle:A100
 Response:
 ::	
 	{
-		 "id": "urn:ngsi-ld:Vehicle:A4567",
+		 "id": "urn:ngsi-ld:Vehicle:A100",
 		 "type": "Vehicle",
 		 "brandName": {
 			 "type": "Property",
@@ -81,6 +81,7 @@ The concise GeoJSON representation of a single Entity is defined as a single Geo
 • "coordinates": shall be present.
 
 - **Get entity in Nomalized Representation:**
+::
 	{
 		"id": "smartcity:houses:house6",
 		"type": "House",
@@ -97,6 +98,7 @@ The concise GeoJSON representation of a single Entity is defined as a single Geo
 	}
 
 - **Get entity with concise option:**
+::
 	{
 		"id": "smartcity:houses:house6",
 		"type": "House",
