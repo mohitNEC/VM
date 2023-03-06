@@ -76,7 +76,8 @@ Response:
 2. Location based example with concise
 ---------------------------------------
 
-The concise GeoJSON representation of a single Entity is defined as a single GeoJSON Feature object as follows: 
+The concise GeoJSON representation of a single Entity is defined as a single GeoJSON Feature object as follows:
+
  - "type": shall be a supported GeoJSON geometry.
  - "coordinates": shall be present.
 
