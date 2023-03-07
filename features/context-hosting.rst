@@ -65,25 +65,28 @@ Example for Context Hosting
 ############################
 
 1. **POST API**
+
+• POST - **http://localhost:9090/ngsi-ld/v1/jsonldcontext**
+
+Payload:
 ::
-	curl --location --request POST 'http://localhost:9090/ngsi-ld/v1/jsonldcontext ' \
-	--header 'Content-Type: application/json' \
-	--data-raw '{
-		"@context": {
-			"stringproperty": "http://testdom.com/stringproperty",
-			"intproperty": "http://testdom.com/intproperty",
-			"floatproperty": "http://testdom.com/floatproperty",
-			"complexproperty": "http://testdom.com/complexproperty",
-			"testrelationship": "http://testdom.com/testrelationship",
-			"TestType": "http://testdom.com/TestType"
-		}
-	}'
-	
+    {
+        "@context": {
+            "stringproperty": "http://testdom.com/stringproperty",
+            "intproperty": "http://testdom.com/intproperty",
+            "floatproperty": "http://testdom.com/floatproperty",
+            "complexproperty": "http://testdom.com/complexproperty",
+            "testrelationship": "http://testdom.com/testrelationship",
+            "TestType": "http://testdom.com/TestType"
+        }
+    }
+
+
 2. **GET API**
 
- - Show the list of @contexts
+- Show the list of @contexts
  
-	GET - *http://localhost:9090/ngsi-ld/v1/jsonldcontext*
+	GET - **http://localhost:9090/ngsi-ld/v1/jsonldcontext**
 		
 Response:
 ::
@@ -91,10 +94,11 @@ Response:
 		"http://localhost:9090/ngsi-ld/v1/jsonldContexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc"
 	]
 
-		
- - Show the list of @contexts with context details
 
-	GET  - *http://localhost:9090/ngsi-ld/v1/jsonldcontext?details=true*
+
+- Show the list of @contexts with context details
+
+	GET  - **http://localhost:9090/ngsi-ld/v1/jsonldcontext?details=true**
  
 Response:
 ::
@@ -118,9 +122,10 @@ Response:
 	]
 
 
- - Show the list of @contexts with kind
 
-	GET - *http://localhost:9090/ngsi-ld/v1/jsonldcontext?kind=hosted*
+- Show the list of @contexts with kind
+
+	GET - **http://localhost:9090/ngsi-ld/v1/jsonldcontext?kind=hosted**
 
 Response:
 ::
@@ -129,9 +134,10 @@ Response:
 		]
 
 
- - Show the @context with particular URI
 
-	GET - *http://localhost:9090/ngsi-ld/v1/jsonldcontexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc*
+- Show the @context with particular URI
+
+	GET - **http://localhost:9090/ngsi-ld/v1/jsonldcontexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc**
  
 Response:
 ::
@@ -147,9 +153,10 @@ Response:
 	}
 
 
- - Show the @context with particular URI with context details
 
-	GET - *http://localhost:9090/ngsi-ld/v1/jsonldcontexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc?details=true*
+- Show the @context with particular URI with context details
+
+	GET - **http://localhost:9090/ngsi-ld/v1/jsonldcontexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc?details=true**
 
 Response:
 ::
@@ -169,19 +176,21 @@ Response:
 		"timestmp": "2023-02-09T11:10:07.707324",
 		"url": "http://localhost:9090/ngsi-ld/v1/jsonldContexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc"
 	}
-	
+
+
 3. **DELETE API**
 
- - Delete @context with particular URI
 
-	• DELETE - http://localhost:9090/ngsi-ld/v1/jsonldcontexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc
+• DELETE - **http://localhost:9090/ngsi-ld/v1/jsonldcontexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc**
 
 Response:
 ::
 	204 No content
 
 
-	• DELETE - http://localhost:9090/ngsi-ld/v1/jsonldcontexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc?reload=true
+
+
+• DELETE - **http://localhost:9090/ngsi-ld/v1/jsonldcontexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc?reload=true**
 		
 Response:
 ::
