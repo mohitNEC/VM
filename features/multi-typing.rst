@@ -9,8 +9,7 @@ An Entity is uniquely identified by its id, so whenever information is provided 
 The philosophy here is to assume that an Entity always had all Entity Types, but possibly not all Entity Types have previously been known in the system. The only option to remove an Entity Type is to delete the Entity and re-create it with the same id.
 
 Type Query Examples
-####################
- 
+---------------------
 - **EXAMPLE 1:** Entities of type Building or House:  
 Building,House
 
@@ -21,145 +20,149 @@ Building,House
 (Home;Vehicle),Motorhome
 
 Example payload for Entity POST and GET with multi-typing
-##########################################################
-**POST API:**
-::
-	curl --location --request POST 'http://localhost:9090/ngsi-ld/v1/entities' \
-	--header 'Content-Type: application/json' \
-	--data-raw '{
-		"id": "urn:ngsi-ld:test10",
-		"type": [
-			"Farm",
-			"Building",
-			"Vehicle"
-		],
-		"location": {
-			"type": "GeoProperty",
-			"value": {
-				"type": "Point",
-				"coordinates": [
-					100,
-					100
-				]
-			}
-		},
-		"name": {
-			"type": "Property",
-			"value": "BMW"
-		},
-		"speed": {
-			"type": "Property",
-			"value": 80
-		}
-	}'
+------------------------------------------------------------
 
-**GET API:**
-::
-	curl --location --request GET 'http://localhost:9090/ngsi-ld/v1/entities?type=Vehicle,(Building;Farm)' \
-	--header 'Content-Type: application/json' \
-	--data-raw ''
+**POST API**
+
+In order to create an entity with multiple types, we can hit the endpoint **http://<IP Address>:<port>/ngsi-ld/v1/entities/**  with the given payload.
+
+.. code-block:: JSON
+
+ {
+     "id": "urn:ngsi-ld:test10",
+     "type": [
+         "Farm",
+         "Building",
+         "Vehicle"
+     ],
+     "location": {
+         "type": "GeoProperty",
+         "value": {
+             "type": "Point",
+             "coordinates": [
+                 100,
+                 100
+             ]
+         }
+     },
+     "name": {
+         "type": "Property",
+         "value": "BMW"
+     },
+     "speed": {
+         "type": "Property",
+         "value": 80
+     }
+ }
+
+**GET API**
+
+To retrieve entity with type query you can send an HTTP GET to - **http://<IP Address>:<port>/ngsi-ld/v1/entities?type=Vehicle,(Building;Farm)** and we will get all the entities having type - Vehicle or (Building and Farm).
 	
-	Response:
-	[
-		{
-			"id": "urn:ngsi-ld:test7",
-			"type": [
-				"Vehicle",
-				"Farm"
-			],
-			"name": {
-				"type": "Property",
-				"value": "BMW"
-			},
-			"speed": {
-				"type": "Property",
-				"value": 80
-			},
-			"location": {
-				"type": "GeoProperty",
-				"value": {
-					"type": "Point",
-					"coordinates": [
-						100,
-						100
-					]
-				}
-			}
-		},
-		{
-			"id": "urn:ngsi-ld:test8",
-			"type": [
-				"Vehicle",
-				"Building"
-			],
-			"name": {
-				"type": "Property",
-				"value": "BMW"
-			},
-			"speed": {
-				"type": "Property",
-				"value": 80
-			},
-			"location": {
-				"type": "GeoProperty",
-				"value": {
-					"type": "Point",
-					"coordinates": [
-						100,
-						100
-					]
-				}
-			}
-		},
-		{
-			"id": "urn:ngsi-ld:test6",
-			"type": [
-				"Farm",
-				"Building"
-			],
-			"name": {
-				"type": "Property",
-				"value": "BMW"
-			},
-			"speed": {
-				"type": "Property",
-				"value": 80
-			},
-			"location": {
-				"type": "GeoProperty",
-				"value": {
-					"type": "Point",
-					"coordinates": [
-						100,
-						100
-					]
-				}
-			}
-		},
-		{
-			"id": "urn:ngsi-ld:test10",
-			"type": [
-				"Farm",
-				"Building",
-				"Vehicle"
-			],
-			"name": {
-				"type": "Property",
-				"value": "BMW"
-			},
-			"speed": {
-				"type": "Property",
-				"value": 80
-			},
-			"location": {
-				"type": "GeoProperty",
-				"value": {
-					"type": "Point",
-					"coordinates": [
-						100,
-						100
-					]
-				}
-			}
-		}
-	]
+Response:
+
+.. code-block:: JSON
+
+ [
+     {
+         "id": "urn:ngsi-ld:test7",
+         "type": [
+             "Vehicle",
+             "Farm"
+         ],
+         "name": {
+             "type": "Property",
+             "value": "BMW"
+         },
+         "speed": {
+             "type": "Property",
+             "value": 80
+         },
+         "location": {
+             "type": "GeoProperty",
+             "value": {
+                 "type": "Point",
+                 "coordinates": [
+                     100,
+                     100
+                 ]
+             }
+         }
+     },
+     {
+         "id": "urn:ngsi-ld:test8",
+         "type": [
+             "Vehicle",
+             "Building"
+         ],
+         "name": {
+             "type": "Property",
+             "value": "BMW"
+         },
+         "speed": {
+             "type": "Property",
+             "value": 80
+         },
+         "location": {
+             "type": "GeoProperty",
+             "value": {
+                 "type": "Point",
+                 "coordinates": [
+                     100,
+                     100
+                 ]
+             }
+         }
+     },
+     {
+         "id": "urn:ngsi-ld:test9",
+         "type": [
+             "Farm",
+             "Building"
+         ],
+         "name": {
+             "type": "Property",
+             "value": "BMW"
+         },
+         "speed": {
+             "type": "Property",
+             "value": 80
+         },
+         "location": {
+             "type": "GeoProperty",
+             "value": {
+                 "type": "Point",
+                 "coordinates": [
+                     100,
+                     100
+                 ]
+             }
+         }
+     },
+     {
+        "id": "urn:ngsi-ld:test10",
+         "type": [
+             "Farm",
+             "Building",
+             "Vehicle"
+         ],
+         "name": {
+             "type": "Property",
+             "value": "BMW"
+         },
+         "speed": {
+             "type": "Property",
+             "value": 80
+         },
+         "location": {
+             "type": "GeoProperty",
+             "value": {
+                 "type": "Point",
+                 "coordinates": [
+                     100,
+                     100
+                 ]
+             }
+         }
+     }
+ ]
