@@ -40,7 +40,7 @@ We can store @context to database and also download from other resource and stor
 
 •	Resource URI : **/jsonldContexts?details=true**
 
-	Response Body: 200 OK  {URL,id, more details} [(show the list of @contexts) with context details]
+	Response Body: 200 OK  {URL,id, more details} [show the list of @contexts with context details]
 	
 	Details: Boolean
 	
@@ -80,129 +80,24 @@ Example for Context Hosting
 	}'
 	
 2. **GET API**
+
+ - Show the list of @contexts
+ 
+	GET - *http://localhost:9090/ngsi-ld/v1/jsonldcontext*
+		
+Response:
 ::
-	•	curl --location --request GET 'http://localhost:9090/ngsi-ld/v1/jsonldcontext ' \
-		--header 'Content-Type: application/json' \
-		--data-raw ''
+	[
+		"http://localhost:9090/ngsi-ld/v1/jsonldContexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc"
+	]
 		
-	Response:
+ - Show the list of @contexts with context details
 
-		[
-			"http://localhost:9090/ngsi-ld/v1/jsonldContexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc",
-			"http://localhost:9090/ngsi-ld/v1/jsonldContexts/urn:a507987f-14ed-42c9-8beb-dfe971afdb3f",
-			"http://localhost:9090/ngsi-ld/v1/jsonldContexts/urn:66edf2ba-61df-4710-8249-77de034d3a80",
-			"http://localhost:9090/ngsi-ld/v1/jsonldContexts/urn:ff7d8473-d08b-4bde-9e2b-a37e5179d40e"
-		]
-		
-	•	curl --location --request GET 'http://localhost:9090/ngsi-ld/v1/jsonldcontext?details=true' \
-		--header 'Content-Type: application/json' \
-		--data-raw ''
-
-	Response:
-
-		[
-			{
-				"id": "urn:9155d599-0db4-4fb0-91ba-4f478090b0fc",
-				"body": {
-					"@context": {
-						"TestType": "http://testdom.com/TestType",
-						"intproperty": "http://testdom.com/intproperty",
-						"floatproperty": "http://testdom.com/floatproperty",
-						"stringproperty": "http://testdom.com/stringproperty",
-						"complexproperty": "http://testdom.com/complexproperty",
-						"testrelationship": "http://testdom.com/testrelationship"
-					}
-				},
-				"kind": "hosted",
-				"timestmp": "2023-02-09T11:10:07.707324",
-				"url": "http://localhost:9090/ngsi-ld/v1/jsonldContexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc"
-			},
-			{
-				"id": "urn:a507987f-14ed-42c9-8beb-dfe971afdb3f",
-				"body": {
-					"@context": {
-						"TestType": "http://testdom.com/TestType",
-						"intproperty": "http://testdom.com/intproperty",
-						"floatproperty": "http://testdom.com/floatproperty",
-						"stringproperty": "http://testdom.com/stringproperty",
-						"complexproperty": "http://testdom.com/complexproperty",
-						"testrelationship": "http://testdom.com/testrelationship"
-					}
-				},
-				"kind": "hosted",
-				"timestmp": "2023-02-09T11:10:21.586499",
-				"url": "http://localhost:9090/ngsi-ld/v1/jsonldContexts/urn:a507987f-14ed-42c9-8beb-dfe971afdb3f"
-			},
-			{
-				"id": "urn:66edf2ba-61df-4710-8249-77de034d3a80",
-				"body": {
-					"@context": {
-						"TestType": "http://testdom.com/TestType",
-						"intproperty": "http://testdom.com/intproperty",
-						"floatproperty": "http://testdom.com/floatproperty",
-						"stringproperty": "http://testdom.com/stringproperty",
-						"complexproperty": "http://testdom.com/complexproperty",
-						"testrelationship": "http://testdom.com/testrelationship"
-					}
-				},
-				"kind": "hosted",
-				"timestmp": "2023-02-09T11:10:22.573511",
-				"url": "http://localhost:9090/ngsi-ld/v1/jsonldContexts/urn:66edf2ba-61df-4710-8249-77de034d3a80"
-			},
-			{
-				"id": "urn:ff7d8473-d08b-4bde-9e2b-a37e5179d40e",
-				"body": {
-					"@context": {
-						"TestType": "http://testdom.com/TestType",
-						"intproperty": "http://testdom.com/intproperty",
-						"floatproperty": "http://testdom.com/floatproperty",
-						"stringproperty": "http://testdom.com/stringproperty",
-						"complexproperty": "http://testdom.com/complexproperty",
-						"testrelationship": "http://testdom.com/testrelationship"
-					}
-				},
-				"kind": "hosted",
-				"timestmp": "2023-02-09T11:10:24.128558",
-				"url": "http://localhost:9090/ngsi-ld/v1/jsonldContexts/urn:ff7d8473-d08b-4bde-9e2b-a37e5179d40e"
-			}
-		]
-
-	•	curl --location --request GET 'http://localhost:9090/ngsi-ld/v1/jsonldcontext?kind=hosted' \
-		--header 'Content-Type: application/json' \
-		--data-raw ''
-
-	Response:
-
-		[
-			"http://localhost:9090/ngsi-ld/v1/jsonldContexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc",
-			"http://localhost:9090/ngsi-ld/v1/jsonldContexts/urn:a507987f-14ed-42c9-8beb-dfe971afdb3f",
-			"http://localhost:9090/ngsi-ld/v1/jsonldContexts/urn:66edf2ba-61df-4710-8249-77de034d3a80",
-			"http://localhost:9090/ngsi-ld/v1/jsonldContexts/urn:ff7d8473-d08b-4bde-9e2b-a37e5179d40e"
-		]
-
-	•	curl --location --request GET 'http://localhost:9090/ngsi-ld/v1/jsonldcontexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc' \
-		--header 'Content-Type: application/json' \
-		--data-raw ''
-
-	Response:
-
-		{
-			"@context": {
-				"TestType": "http://testdom.com/TestType",
-				"intproperty": "http://testdom.com/intproperty",
-				"floatproperty": "http://testdom.com/floatproperty",
-				"stringproperty": "http://testdom.com/stringproperty",
-				"complexproperty": "http://testdom.com/complexproperty",
-				"testrelationship": "http://testdom.com/testrelationship"
-			}
-		}
-
-	•	curl --location --request GET 'http://localhost:9090/ngsi-ld/v1/jsonldcontexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc?details=true' \
-		--header 'Content-Type: application/json' \
-		--data-raw ''
-
-	Response:
-
+	GET  - *http://localhost:9090/ngsi-ld/v1/jsonldcontext?details=true*
+ 
+Response:
+::
+	[
 		{
 			"id": "urn:9155d599-0db4-4fb0-91ba-4f478090b0fc",
 			"body": {
@@ -219,17 +114,70 @@ Example for Context Hosting
 			"timestmp": "2023-02-09T11:10:07.707324",
 			"url": "http://localhost:9090/ngsi-ld/v1/jsonldContexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc"
 		}
+	]
+
+ - Show the list of @contexts with kind
+
+	GET - *http://localhost:9090/ngsi-ld/v1/jsonldcontext?kind=hosted*
+
+Response:
+::
+		[
+			"http://localhost:9090/ngsi-ld/v1/jsonldContexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc"
+		]
+
+ - Show the @context with particular URI
+
+	GET - *http://localhost:9090/ngsi-ld/v1/jsonldcontexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc*
+ 
+Response:
+::
+	{
+		"@context": {
+			"TestType": "http://testdom.com/TestType",
+			"intproperty": "http://testdom.com/intproperty",
+			"floatproperty": "http://testdom.com/floatproperty",
+			"stringproperty": "http://testdom.com/stringproperty",
+			"complexproperty": "http://testdom.com/complexproperty",
+			"testrelationship": "http://testdom.com/testrelationship"
+		}
+	}
+
+ - Show the @context with particular URI with context details
+
+	GET - *http://localhost:9090/ngsi-ld/v1/jsonldcontexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc?details=true*
+
+Response:
+::
+	{
+		"id": "urn:9155d599-0db4-4fb0-91ba-4f478090b0fc",
+		"body": {
+			"@context": {
+				"TestType": "http://testdom.com/TestType",
+				"intproperty": "http://testdom.com/intproperty",
+				"floatproperty": "http://testdom.com/floatproperty",
+				"stringproperty": "http://testdom.com/stringproperty",
+				"complexproperty": "http://testdom.com/complexproperty",
+				"testrelationship": "http://testdom.com/testrelationship"
+			}
+		},
+		"kind": "hosted",
+		"timestmp": "2023-02-09T11:10:07.707324",
+		"url": "http://localhost:9090/ngsi-ld/v1/jsonldContexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc"
+	}
 	
 3. **DELETE API**
+
+ - Delete @context with particular URI
+
+	• DELETE - http://localhost:9090/ngsi-ld/v1/jsonldcontexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc
+
+Response:
 ::
-	•	curl --location --request DELETE 'http://localhost:9090/ngsi-ld/v1/jsonldcontexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc' \
-		--header 'Content-Type: application/json' \
-		--data-raw ''
+	204 No content
 
-	Response : 204 No content
-
-	•	curl --location --request DELETE 'http://localhost:9090/ngsi-ld/v1/jsonldcontexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc?reload=true' \
-		--header 'Content-Type: application/json' \
-		--data-raw ''
+	• DELETE - http://localhost:9090/ngsi-ld/v1/jsonldcontexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc?reload=true
 		
-	Response : 204 No content
+Response:
+::
+	204 No content
