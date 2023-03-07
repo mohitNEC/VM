@@ -90,6 +90,7 @@ Response:
 	[
 		"http://localhost:9090/ngsi-ld/v1/jsonldContexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc"
 	]
+
 		
  - Show the list of @contexts with context details
 
@@ -116,6 +117,7 @@ Response:
 		}
 	]
 
+
  - Show the list of @contexts with kind
 
 	GET - *http://localhost:9090/ngsi-ld/v1/jsonldcontext?kind=hosted*
@@ -125,6 +127,7 @@ Response:
 		[
 			"http://localhost:9090/ngsi-ld/v1/jsonldContexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc"
 		]
+
 
  - Show the @context with particular URI
 
@@ -142,6 +145,7 @@ Response:
 			"testrelationship": "http://testdom.com/testrelationship"
 		}
 	}
+
 
  - Show the @context with particular URI with context details
 
@@ -175,6 +179,7 @@ Response:
 Response:
 ::
 	204 No content
+
 
 	• DELETE - http://localhost:9090/ngsi-ld/v1/jsonldcontexts/urn:9155d599-0db4-4fb0-91ba-4f478090b0fc?reload=true
 		
