@@ -18,8 +18,8 @@ We can store @context to database and also download from other resource and stor
 Context Hosting Example
 -------------------------
 
-Create Operation
-#################
+1. Create Operation
+====================
 
 In order to create an context, we can hit the endpoint POST **http://<IP Address>:<port>/ngsi-ld/v1/jsonldcontext** with the given payload.
 
@@ -39,13 +39,15 @@ Payload:
  }
 
 
-Query Operation
-################
+2. Query Operation
+===================
 
 - **Show the list of @contexts**
 
 To show the list of @contexts, you can send an HTTP GET request to - **http://<IP Address>:<port>/ngsi-ld/v1/jsonldcontexts** and we will get the list of contexts.
 	
+	GET - **http://localhost:9090/ngsi-ld/v1/jsonldcontexts**
+
 Response:
 
 .. code-block:: JSON
@@ -59,6 +61,8 @@ Response:
 - **Show the list of @contexts with context details**
 
 To show the list of @contexts with context details, you can send an HTTP GET request to - **http://<IP Address>:<port>/ngsi-ld/v1/jsonldcontexts?details=true** and we will get the list of contexts with context details.
+
+	GET - **http://localhost:9090/ngsi-ld/v1/jsonldcontexts?details=true**
 
 Response:
 
@@ -122,7 +126,7 @@ Response:
 
 
 
-- **Show the @context with particular URI with context details**
+- **Show the @context with particular URI and context details**
 
 To show the @context with a particular URI and context details, you can send an HTTP GET request to - **http://<IP Address>:<port>/ngsi-ld/v1/jsonldcontexts/{id}?details=true** and we will get the @context with particular URI and context details.
 
@@ -150,8 +154,8 @@ Response:
  }
 
 
-DELETE Operation
-#################
+3. DELETE Operation
+====================
 
 If we want to delete the @context, then we need to make DELETE request with the URL **http://<IP Address>:<port>/ngsi-ld/v1/jsonldcontexts/{id}**.
 

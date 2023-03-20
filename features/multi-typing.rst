@@ -14,26 +14,26 @@ Type Query Examples
 Building,House
 
 - **EXAMPLE 2:** Entities of type Home and Vehicle: 
-(Home;Vehicle)
+(Home%3BVehicle)
 
 - **EXAMPLE 3:** Entities of type (Home and Vehicle) or Motorhome:  
-(Home;Vehicle),Motorhome
+(Home%3BVehicle),Motorhome
 
 Example payload for Entity POST and GET with multi-typing
 ------------------------------------------------------------
 
-**POST API**
+1. Create Operation
+=====================
 
-In order to create an entity with multiple types, we can hit the endpoint **http://<IP Address>:<port>/ngsi-ld/v1/entities/**  with the given payload.
+In order to create an entity with multiple types, we can hit the endpoint POST **http://<IP Address>:<port>/ngsi-ld/v1/entities/**  with the given payload.
 
 .. code-block:: JSON
 
  {
-     "id": "urn:ngsi-ld:test10",
+     "id": "urn:ngsi-ld:test2",
      "type": [
-         "Farm",
-         "Building",
-         "Vehicle"
+         "Vehicle",
+         "Building"
      ],
      "location": {
          "type": "GeoProperty",
@@ -55,9 +55,14 @@ In order to create an entity with multiple types, we can hit the endpoint **http
      }
  }
 
-**GET API**
+2. Query Operation
+====================
 
-To retrieve entity with type query you can send an HTTP GET to - **http://<IP Address>:<port>/ngsi-ld/v1/entities?type=Vehicle,(Building;Farm)** and we will get all the entities having type - Vehicle or (Building and Farm).
+To retrieve entity with multiple types, you can send an HTTP GET to - **http://<IP Address>:<port>/ngsi-ld/v1/entities?type={type}** and we will get all the entities having multiple types.
+
+**EXAMPLE**: Give back the Entities of type is equals to Vehicle or Building
+
+	GET - **http://localhost:9090/ngsi-ld/v1/entities?type=Vehicle,Building**
 	
 Response:
 
@@ -65,86 +70,10 @@ Response:
 
  [
      {
-         "id": "urn:ngsi-ld:test7",
-         "type": [
-             "Vehicle",
-             "Farm"
-         ],
-         "name": {
-             "type": "Property",
-             "value": "BMW"
-         },
-         "speed": {
-             "type": "Property",
-             "value": 80
-         },
-         "location": {
-             "type": "GeoProperty",
-             "value": {
-                 "type": "Point",
-                 "coordinates": [
-                     100,
-                     100
-                 ]
-             }
-         }
-     },
-     {
-         "id": "urn:ngsi-ld:test8",
+         "id": "urn:ngsi-ld:test2",
          "type": [
              "Vehicle",
              "Building"
-         ],
-         "name": {
-             "type": "Property",
-             "value": "BMW"
-         },
-         "speed": {
-             "type": "Property",
-             "value": 80
-         },
-         "location": {
-             "type": "GeoProperty",
-             "value": {
-                 "type": "Point",
-                 "coordinates": [
-                     100,
-                     100
-                 ]
-             }
-         }
-     },
-     {
-         "id": "urn:ngsi-ld:test9",
-         "type": [
-             "Farm",
-             "Building"
-         ],
-         "name": {
-             "type": "Property",
-             "value": "BMW"
-         },
-         "speed": {
-             "type": "Property",
-             "value": 80
-         },
-         "location": {
-             "type": "GeoProperty",
-             "value": {
-                 "type": "Point",
-                 "coordinates": [
-                     100,
-                     100
-                 ]
-             }
-         }
-     },
-     {
-        "id": "urn:ngsi-ld:test10",
-         "type": [
-             "Farm",
-             "Building",
-             "Vehicle"
          ],
          "name": {
              "type": "Property",

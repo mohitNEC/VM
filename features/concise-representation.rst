@@ -11,13 +11,13 @@ Following rules are applied for the concise representation:
  • Every LanguageProperty is represented by a languageMap key-value pair.
  • Every Relationship is represented by an object key-value pair.
 
-Concise Representation Example
----------------------------------
+Comparison between Normalized and Concise Representation of Entity
+---------------------------------------------------------------------
 
-1. Create Operation
-======================
+1. Create Operation(Normalized Representation)
+===============================================
 
-In order to create an entity, we can hit the endpoint **http://<IP Address>:<port>/ngsi-ld/v1/entities/**  with the given payload.
+In order to create an entity, we can hit the endpoint POST **http://<IP Address>:<port>/ngsi-ld/v1/entities/**  with the given payload.
 
 .. code-block:: JSON
 
@@ -46,12 +46,11 @@ In order to create an entity, we can hit the endpoint **http://<IP Address>:<por
      }
  }
 
-2. Comparison between Normalized and Concise Representation of Entity
-========================================================================
 
-- **Normalized Representation**
+2. Query Operation(Normalized Representation)
+==============================================
 
-To receive entities with normal representation you can send an HTTP GET to **http://localhost:9090/ngsi-ld/v1/entities/urn:ngsi-ld:Vehicle:A100**
+To retrieve entities with normal representation you can send an HTTP GET to **http://localhost:9090/ngsi-ld/v1/entities/urn:ngsi-ld:Vehicle:A100**
 
 Response:
 
@@ -82,9 +81,36 @@ Response:
      }
  }
 
-- **Concise Representation**
+3. Create Operation(Concise Representation)
+===============================================
 
-To receive entities in comcise representation you can send an HTTP GET to **"http://localhost:9090/ngsi-ld/v1/entities/urn:ngsi-ld:Vehicle:A100?option=concise"** where option=concise is used to get entity in concise representation.
+In order to create an entity with concise representation, we can hit the endpoint POST **http://<IP Address>:<port>/ngsi-ld/v1/entities/**  with the given payload.
+
+.. code-block:: JSON
+
+ {
+     "id": " urn:ngsi-ld:Vehicle:A100",
+     "type": "Vehicle",
+     "brandName": "Mercedes",
+     "street": {
+         "languageMap": {
+             "fr": "Grand Place",
+             "nl": "Grote Markt"
+         }
+     },
+     "isParked": {
+         "object": "urn:ngsi-ld:OffStreetParking:Downtown1",
+         "observedAt": "2017-07-29T12:00:04Z",
+         "providedBy": {
+             "object": "urn:ngsi-ld:Person:Bob"
+         }
+     }
+ }
+
+4. Query Operation(Concise Representation)
+===============================================
+
+To retrieve entities in concise representation you can send an HTTP GET to **"http://localhost:9090/ngsi-ld/v1/entities/urn:ngsi-ld:Vehicle:A100?option=concise"** where *option=concise* is used to get entity in concise representation.
 
 Response:
 

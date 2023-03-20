@@ -25,8 +25,8 @@ In order to support such aggregation functions, two parameters are defined:
 Example for Aggregation Support
 ---------------------------------
 
-Create Operation
-#################
+1. Create Operation
+====================
 
 In order to create an entity, we can hit the endpoint POST **http://<IP Address>:<port>/ngsi-ld/v1/entities** with the given payload.
 
@@ -96,8 +96,8 @@ Payload:
  }
 
 
-Query Operation
-################
+2. Query Operation
+===================
 
 To retrieve entity with aggregation support, you can send an HTTP GET to - **http://<IP Address>:<port>/ngsi-ld/v1/entities?aggrMethods={aggrMethods}&aggrPeriodDuration={aggrPeriodDuration}&options=aggregatedValues** and will return back the Entities with given aggregated methods and aggregated time period.
 

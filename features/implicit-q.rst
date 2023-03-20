@@ -14,12 +14,12 @@ Example for Implicit Attribute by q
 1. Create Operation
 ======================
 
-In order to create an entity, we can hit the endpoint **http://<IP Address>:<port>/ngsi-ld/v1/entities/**  with the given payload.
+In order to create an entity, we can hit the endpoint POST **http://<IP Address>:<port>/ngsi-ld/v1/entities/**  with the given payload.
 
 .. code-block:: JSON
 
  {
-     "id": "urn:ngsi-ld:Vehicle:A106",
+     "id": "urn:ngsi-ld:Vehicle:A100",
      "type": "Vehicle",
      "brandName": {
          "type": "Property",
@@ -35,13 +35,11 @@ In order to create an entity, we can hit the endpoint **http://<IP Address>:<por
      },
      "speed": {
          "type": "Property",
-         "value": 120,
-         "observedAt": "2020-08-01T12:00:00Z"
+         "value": 27
      },
      "temperature": {
          "type": "Property",
          "value": 25,
-         "observedAt": "2022-03-14T01:59:26.535Z",
          "unitCode": "CEL"
      },
      "location": {
@@ -56,51 +54,26 @@ In order to create an entity, we can hit the endpoint **http://<IP Address>:<por
      }
  }
 
+2. Query Operation
+====================
 
-**EXAMPLE**: Give back the Entity where brand name is equals to "Swift"
+To retrieve entity with implicit attribute by q, you can send an HTTP GET to - **http://<IP Address>:<port>/ngsi-ld/v1/entities?q={attrX}** and we will get all the entities that have an attribute called attrX.
 
-To retrieve entity where brandName is equals to "Swift" you can send an HTTP GET to - **http://<IP Address>:<port>/ngsi-ld/v1/entities?q=brandName=="Swift"** and we will get all the entities having brand name equals to Swift.
-	
+**EXAMPLE**: Give back the Entities whose speed is equals to 27
+
+	GET - **http://localhost:9090/ngsi-ld/v1/entities?q=speed==27**
+
 Response:
 
 .. code-block:: JSON
 
  [
      {
-         "id": "urn:ngsi-ld:Vehicle:A106",
-         "type": "Vehicle",
-         "brandName": {
-             "type": "Property",
-             "value": "Swift"
-         },
-         "isParked": {
-             "type": "Relationship",
-             "providedBy": {
-                 "type": "Relationship",
-                 "object": "urn:ngsi-ld:Person:Bob"
-             },
-             "object": "urn:ngsi-ld:OffStreetParking:Downtown1"
-         },
+         "id": "urn:ngsi-ld:Vehicle:A100",
+         "type": "Building",
          "speed": {
              "type": "Property",
-             "value": 120,
-             "observedAt": "2020-08-01T12:00:00Z"
-         },
-         "temperature": {
-             "type": "Property",
-             "value": 25,
-             "observedAt": "2022-03-14T01:59:26.535Z",
-             "unitCode": "CEL"
-         },
-         "location": {
-             "type": "GeoProperty",
-             "value": {
-                 "type": "Point",
-                 "coordinates": [
-                     -8.6,
-                     41.6
-                 ]
-             }
+             "value": 27
          }
      }
  ]
