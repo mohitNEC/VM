@@ -51,6 +51,7 @@ Payload:
      }
  }
 
+
 2. Create Entity
 ===================
 
@@ -72,6 +73,7 @@ Payload:
          "value": 91
      }
  }
+
 
 3. Entity Creation Notification
 =================================
@@ -104,7 +106,8 @@ MQTT Notification:
          ]
      }
  }
- 
+
+
 4. Partial Update Attribute
 ============================
 
@@ -118,13 +121,14 @@ For this tutorial we can hit the endpoint - **http://localhost:9090/ngsi-ld/v1/e
      "type": "Property",
      "value": "BMW"
  }
+
+
+5. Entity Update Notification
+===============================
  
- 5. Entity Update Notification
- ===============================
+After creating the entity we will get the notification for Entity update as follows:
  
- After creating the entity we will get the notification for Entity update as follows:
- 
- .. code-block:: JSON
+.. code-block:: JSON
 
  {
      "body": {
@@ -151,4 +155,3 @@ For this tutorial we can hit the endpoint - **http://localhost:9090/ngsi-ld/v1/e
  }
  
 So, here in the notification we can see that we are getting an extra parameter **previousValue** which shows us the previous value of brandName attribute as we have enabled "showChanges" while creating subscription.
- 
