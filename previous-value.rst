@@ -6,23 +6,11 @@ We have added new configurable trigger scenarios in notification. The notificati
 
 **"previousValue":** only provided in case of notifications and if the showChanges option is explicitly requested. It represents the previous Property Value, before the triggering change
 
-.. list-table::  **Previous Value Support**
-   :widths: 15 15 15 15 40
-   :length: 0 0 0 0 100
-   :header-rows: 1
+========     =========  ============      ===========  ===========
+  Name       Data Type  Restrictions      Cardinality  Description
+========     =========  ============      ===========  ===========
+showChanges  boolean    false by default  0..1         If true, the previous value (previousValue) of Properties or languageMap (previousLanguageMap) of Language Properties or object (previousObject) of Relationships is provided in addition to the current one. This requires that it exists, i.e. in case of modifications and deletions, but not in the case of creations. showChanges cannot be true in case format is "keyValues"
 
-   * - Name
-     - Data Type	 
-     - Restrictions
-     - Cardinality
-     - Description
-	 
-   * - showChanges
-     - boolean	 
-     - false by default
-     - 0..1
-     - If true, the previous value (previousValue)
-	 
 
 Example for Previous Value Support
 ------------------------------------
