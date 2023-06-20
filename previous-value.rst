@@ -14,13 +14,13 @@ We have added new configurable trigger scenarios in notification. The notificati
      - Data Type	 
      - Restrictions
      - Cardinality
-	 - Description
+     - Description
 	 
    * - showChanges
      - boolean	 
      - false by default
      - 0..1
-	 - If true, the previous value (previousValue)
+     - If true, the previous value (previousValue)
 	 
 
 Example for Previous Value Support
