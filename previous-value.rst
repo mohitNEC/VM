@@ -6,7 +6,7 @@ We have added new configurable trigger scenarios in notification. The notificati
 
 **"previousValue":** only provided in case of notifications and if the showChanges option is explicitly requested. It represents the previous Property Value, before the triggering change
 
-.. list-table::  ****
+.. list-table::  **Previous Value Support**
    :widths: 15 15 20 15 40
    :header-rows: 1
 
@@ -62,7 +62,7 @@ Payload:
 .. code-block:: JSON
 
  {
-     "id": "urn:test:testentity001",
+     "id": "urn:test:testentity01",
      "type": "Vehicle",
      "brandName": {
          "type": "Property",
@@ -89,7 +89,7 @@ MQTT Notification:
          "id": "notification:-5854452942666568672",
          "type": "Notification",
          "subscriptionId": "urn:ngsi-ld:Subscription:001",
-         "notifiedAt": "2023-06-20T02:01:00.335000Z",
+         "notifiedAt": "2023-06-16T02:01:00.335000Z",
          "data": [
              {
                  "id": "urn:test:testentity01",
@@ -135,7 +135,7 @@ After creating the entity we will get the notification for Entity update as foll
          "id": "notification:-5497055590466985753",
          "type": "Notification",
          "subscriptionId": "urn:ngsi-ld:Subscription:001",
-         "notifiedAt": "2023-06-20T02:16:27.278000Z",
+         "notifiedAt": "2023-06-16T02:16:27.278000Z",
          "data": [
              {
                  "id": "urn:test:testentity01",
@@ -155,3 +155,4 @@ After creating the entity we will get the notification for Entity update as foll
  }
  
 So, here in the notification we can see that we are getting an extra parameter **previousValue** which shows us the previous value of brandName attribute as we have enabled "showChanges" while creating subscription.
+ 
