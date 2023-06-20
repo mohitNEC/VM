@@ -7,7 +7,7 @@ We have added new configurable trigger scenarios in notification. The notificati
 **"previousValue":** only provided in case of notifications and if the showChanges option is explicitly requested. It represents the previous Property Value, before the triggering change
 
 +-------------+-------------+------------------+-------------+--------------------------------------------------------------+
-| Name        | Data Type   | Restrictions     | Cardinality | Description                                                  |
+| Name        | DataType    | Restrictions     | Cardinality | Description                                                  |
 +=============+=============+==================+=============+==============================================================+
 | showChanges | boolean     | false by default | 0..1        | If true, the previous value (previousValue) of Properties    |
 |             |             |                  |             | or languageMap (previousLanguageMap) of Language Properties  |
