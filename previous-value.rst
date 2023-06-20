@@ -10,7 +10,7 @@ We have added new configurable trigger scenarios in notification. The notificati
   Name       Data Type  Restrictions      Cardinality  Description
 ========     =========  ============      ===========  ===========
 showChanges  boolean    false by default  0..1         If true, the previous value (previousValue) of Properties or languageMap (previousLanguageMap) of Language Properties or object (previousObject) of Relationships is provided in addition to the current one. This requires that it exists, i.e. in case of modifications and deletions, but not in the case of creations. showChanges cannot be true in case format is "keyValues"
-
+========     =========  ============      ===========  ===========
 
 Example for Previous Value Support
 ------------------------------------
