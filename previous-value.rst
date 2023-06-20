@@ -8,7 +8,7 @@ We have added new configurable trigger scenarios in notification. The notificati
 
 .. list-table::  **Previous Value Support**
    :widths: 15 15 15 15 40
-   :length: 100
+   :length: 0 0 0 0 100
    :header-rows: 1
 
    * - Name
