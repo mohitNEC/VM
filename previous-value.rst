@@ -7,7 +7,7 @@ We have added new configurable trigger scenarios in notification. The notificati
 **"previousValue":** only provided in case of notifications and if the showChanges option is explicitly requested. It represents the previous Property Value, before the triggering change
 
 .. list-table::  **Previous Value Support**
-   :widths: 15 15 20 15 40
+   :widths: 15 15 15 15 40
    :header-rows: 1
 
    * - Name
