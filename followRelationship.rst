@@ -9,7 +9,7 @@ The join parameter has two supported values: *inline* and *flat*
 
 For example:  a person holds several pieces of land type:AgriParcel. Each AgriParcel has some of its own attributes, e.g., soilType, cropType. Each AgriParcel also has its own related weather station (i.e., Relationship to an entity type:WeatherObserved) displaying values holding to current observed weather conditions. We also require a weather forecast (i.e. Relationship to an entity type:WeatherForecast) which covers a wider area encompassing multiple AgriParcels for a predicted weather conditions.
 
-.. figure:: followRelationshipDiagram.png
+.. figure:: features/followRelationshipDiagram.png
 
 **Note:** The join parameter is compatible with the option parameter in all scenarios including - normalized, concise, and key values.
 
