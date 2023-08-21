@@ -9,7 +9,7 @@ The join parameter has two supported values: *inline* and *flat*
 
 For example:  a person holds several pieces of land type:AgriParcel. Each AgriParcel has some of its own attributes, e.g., soilType, cropType. Each AgriParcel also has its own related weather station (i.e., Relationship to an entity type:WeatherObserved) displaying values holding to current observed weather conditions. We also require a weather forecast (i.e. Relationship to an entity type:WeatherForecast) which covers a wider area encompassing multiple AgriParcels for a predicted weather conditions.
 
-.. figure:: figures/followRelationshipDiagram.png
+.. figure:: followRelationshipDiagram.png
 
 **Note:** The join parameter is compatible with the option parameter in all scenarios including - normalized, concise, and key values.
 
@@ -190,9 +190,9 @@ Response:
      }
  }
 
-- **Retrieve entity with concise and appended sub-entities**
+- **Retrieve entity with concise and flat sub-entities**
 
-To retrieve AgriParcel entity in concise format and with appended sub-entities, you can send an HTTP GET to - **http://<IP Address>:<port>/ngsi-ld/v1/entities/{entityId}?options=concise&join=flat** and we will get target entities returned in list.
+To retrieve AgriParcel entity in concise format and with flat sub-entities, you can send an HTTP GET to - **http://<IP Address>:<port>/ngsi-ld/v1/entities/{entityId}?options=concise&join=flat** and we will get target entities returned in list.
 	
 	GET - **http://localhost:9090/ngsi-ld/v1/entities/urn:ngsi-ld:AgriParcel:001?options=concise&join=flat&joinLevel=3**
 
@@ -288,9 +288,9 @@ Response:
      }
  ]
  
-- **Retrieve entity in concise format, inline sub-entities and attribute filters**
+- **Retrieve entity in concise format, with inline sub-entities and attribute filters**
 
-To retrieve entities with idsOnly parameter, you can send an HTTP GET to - **http://<IP Address>:<port>/ngsi-ld/v1/entities/{entityId}?options=concise&join=inline&attrs={}**.
+To retrieve entities with inline sub-entities and attribute filters, you can send an HTTP GET to - **http://<IP Address>:<port>/ngsi-ld/v1/entities/{entityId}?options=concise&join=inline&attrs={}**.
 
 Example: Give me the data corresponding to soil type and the observed humidity and wind speed
 
